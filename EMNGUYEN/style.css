@@ -1,0 +1,82 @@
+*{box-sizing:border-box}
+:root{
+  --bg:#0b132b;
+  --card:#ec37c5;
+  --muted:#8d99ae;
+  --accent:#2a9d8f;
+  --accent2:#3a86ff;
+  --fg:#1f2937;
+}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';
+  background:#ac349a;
+  color:var(--fg);
+  height:100vh;
+  display:flex;
+}
+.container{
+  display:grid;
+  grid-template-columns: 360px 1fr;
+  gap:0;
+  width:100%;
+  height:100vh;
+}
+.panel{
+  background:var(--card);
+  padding:20px 18px;
+  border-right:1px solid #e5e7eb;
+  overflow:auto;
+}
+h1{
+  margin:6px 0 14px 0;
+  font-size:20px;
+}
+.field{ margin-bottom:14px; }
+label{ font-weight:600; font-size:13px; color:#374151; display:block; margin-bottom:6px;}
+input[type="text"], input[type="number"], select{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  outline:none;
+  background:rgb(248, 246, 248);
+  font-size:14px;
+}
+input[type="text"]:focus, input[type="number"]:focus, select:focus{
+  border-color:var(--accent2);
+  box-shadow:0 0 0 3px rgba(58,134,255,0.12);
+}
+.row{ display:flex; align-items:center; gap:10px; margin:10px 0; }
+.gap{ gap:8px; }
+button{
+  border:none; cursor:pointer; padding:10px 12px; border-radius:10px; font-weight:600;
+}
+.primary{ background:var(--accent2); color:white; width:100%; margin-top:10px; }
+.ghost{ background:#f3f4f6; color:#111827; }
+.ghost:hover{ background:#e5e7eb; }
+#map{ height:100vh; }
+.summary{
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+  padding:12px;
+  border-radius:10px;
+  margin-top:12px;
+  line-height:1.5;
+}
+.hidden{ display:none; }
+.small{ font-size:12px; }
+.gray{ color:#6b7280; }
+.search-group{ position:relative; }
+.suggest{
+  position:absolute; left:0; right:0; top:100%; background:white; border:1px solid #e5e7eb;
+  border-radius:10px; overflow:hidden; z-index:1000; display:none; max-height:220px; overflow:auto;
+  box-shadow:0 8px 24px rgba(0,0,0,0.08);
+}
+.suggest button{
+  display:block; width:100%; text-align:left; padding:10px 12px; background:white;
+}
+.suggest button:hover{ background:#f3f4f6; }
+.range{
+  width:100%;
+}

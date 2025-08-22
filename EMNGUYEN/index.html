@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> 🚖 Mover Services 🚖</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <!-- Leaflet Routing Machine (OSRM) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"
+  />
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="panel">
+      <h1>🚖 Mover Services 🚖</h1>
+
+      <div class="field">
+        <label>Điểm đón</label>
+        <div class="search-group">
+          <input id="pickup" type="text" placeholder="Nhập địa điểm, ví dụ: Ben Thanh Market" autocomplete="off"/>
+          <div id="pickup-suggest" class="suggest"></div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Điểm đến</label>
+        <div class="search-group">
+          <input id="dropoff" type="text" placeholder="Nhập địa điểm, ví dụ: Landmark 81" autocomplete="off"/>
+          <div id="dropoff-suggest" class="suggest"></div>
+        </div>
+      </div>
+
+      <div class="row gap">
+        <button id="swapBtn" class="ghost">↕️ Đổi điểm</button>
+        <button id="useMapBtn" class="ghost">📍 Chọn trên bản đồ</button>
+      </div>
+
+      <div class="row">
+        <label>Loại xe</label>
+        <select id="vehicle">
+          <option value="bike">Xe máy</option>
+          <option value="bike_premium">Xe máy premium</option>
+          <option value="car4">Ô tô 4 chỗ</option>
+          <option value="car7">Ô tô 7 chỗ</option>
+          <option value="car_luxury">Ô tô luxury</option>
+        </select>
+      </div>
+
+      <div class="row">
+        <label>Giờ đi</label>
+        <input id="hour" type="number" min="0" max="23" step="1" value="8" />
+      </div>
+
+      <div class="row">
+        <label>Tắc đường (0-10)</label>
+        <input id="traffic" type="range" min="0" max="10" value="3" />
+        <span id="trafficVal">3</span>
+      </div>
+
+      <button id="bookBtn" class="primary">🚗 Đặt xe</button>
+
+      <div id="summary" class="summary hidden"></div>
+      <p class="small gray">
+        * Tìm kiếm địa điểm sử dụng Nominatim (OpenStreetMap). Tuyến đường tính bởi OSRM demo server.
+      </p>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
